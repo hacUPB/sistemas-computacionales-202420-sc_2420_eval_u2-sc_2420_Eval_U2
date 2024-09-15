@@ -1,0 +1,17 @@
+﻿  main.c
+C:\Users\USUARIO\source\repos\Myproyect1\Myproyect1\main.c(190,26): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\USUARIO\source\repos\Myproyect1\Myproyect1\main.c(191,30): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\USUARIO\source\repos\Myproyect1\Myproyect1\main.c(193,32): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\USUARIO\source\repos\Myproyect1\Myproyect1\main.c(194,32): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\USUARIO\source\repos\Myproyect1\Myproyect1\main.c(195,30): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\USUARIO\source\repos\Myproyect1\Myproyect1\main.c(196,30): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\USUARIO\source\repos\Myproyect1\Myproyect1\main.c(230,71): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\USUARIO\source\repos\Myproyect1\Myproyect1\main.c(236,47): warning C4018: '>': no coinciden signed/unsigned
+C:\Users\USUARIO\source\repos\Myproyect1\Myproyect1\main.c(297,51): warning C4244: 'función': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\USUARIO\source\repos\Myproyect1\Myproyect1\main.c(287,32): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\USUARIO\source\repos\Myproyect1\Myproyect1\main.c(287,40): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\USUARIO\source\repos\Myproyect1\Myproyect1\main.c(287,48): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\USUARIO\source\repos\Myproyect1\Myproyect1\main.c(287,60): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\USUARIO\source\repos\Myproyect1\Myproyect1\main.c(292,53): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\USUARIO\source\repos\Myproyect1\Myproyect1\main.c(292,74): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
+  Myproyect1.vcxproj -> C:\Users\USUARIO\source\repos\Myproyect1\x64\Debug\Myproyect1.exe
