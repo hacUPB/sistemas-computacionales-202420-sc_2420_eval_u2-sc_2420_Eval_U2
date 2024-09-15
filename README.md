@@ -1014,125 +1014,36 @@ bool detect_collision(Player* player, Circle* circle) {
 ## Juego principal 
 Aquí ya se ha agregado todo: cómo iniciar SDL, el renderizado, la ventana del juego y el bucle del juego. También se implementó la funcionalidad para dibujar los objetos y generar las esferas, y para que la cantidad de esferas aumentara con el tiempo. Al final, se colocó un print para mostrar un mensaje de "Has perdido!" cuando el jugador colisiona con un círculo.
 
+- La pantalla
+
 ![image](https://github.com/user-attachments/assets/cbd67c91-c6b3-428e-b446-d1696e576865)
 
+lo que se dibujo en ella
 
-```c
-int main(int argc, char* args[]) {
-    // Inicializar SDL
-    if (SDL_Init(SDL_INIT_VIDEO) != 0) {
-        fprintf(stderr, "Error al inicializar SDL: %s\n", SDL_GetError());
-        return 1;
-    }
+![image](https://github.com/user-attachments/assets/0e4e8fda-afa6-4398-bdd4-a91d74f54323)
 
-    // Crear la ventana
-    SDL_Window* window = SDL_CreateWindow("Juego de esquivar ", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, 0);
-    if (!window) {
-        fprintf(stderr, "Error al crear la ventana: %s\n", SDL_GetError());
-        SDL_Quit();
-        return 1;
-    }
+![image](https://github.com/user-attachments/assets/04ca0bdc-a6d8-412c-a337-c16f955e8734)
 
-    // Crear el renderizador
-    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-    if (!renderer) {
-        fprintf(stderr, "Error al crear el renderizador: %s\n", SDL_GetError());
-        SDL_DestroyWindow(window);
-        SDL_Quit();
-        return 1;
-    }
+- Renderizacion
 
-    // Inicializar el jugador y el primer círculo
-    srand(time(0)); // Semilla para los números aleatorios
-    initialize_player(&player);
-    initialize_circle(&circles[0]);
+![image](https://github.com/user-attachments/assets/767c65c8-4e21-4a71-b32b-f37ca9743d6c)
 
-    last_add_time = SDL_GetTicks(); // Controlar el tiempo de juego
-    bool game_running = true;
-    SDL_Event event;
+- el bucle del juego
+  
+![image](https://github.com/user-attachments/assets/6c47942f-16c1-4b65-830a-e32dd7d6431c)
 
-    // Bucle principal del juego
-    while (game_running && !game_over) {
-        // Manejar eventos de SDL
-        while (SDL_PollEvent(&event)) {
-            if (event.type == SDL_QUIT) {
-                game_running = false;
-            }
-            else if (event.type == SDL_KEYDOWN) {
-                if (event.key.keysym.sym == SDLK_a) {
-                    player.vel_x = -5;
-                }
-                else if (event.key.keysym.sym == SDLK_d) {
-                    player.vel_x = 5;
-                }
-            }
-            else if (event.type == SDL_KEYUP) {
-                if (event.key.keysym.sym == SDLK_a || event.key.keysym.sym == SDLK_d) {
-                    player.vel_x = 0;
-                }
-            }
-        }
+- Los obstaculos
+- 
+![image](https://github.com/user-attachments/assets/584811a0-57a7-49c6-8acd-b7c4401d6a5d)
 
-        // Actualizar la posición del jugador
-        player.x += player.vel_x;
 
-        // Limitar la posición del jugador a los bordes de la ventana
-        if (player.x < 0) player.x = 0;
-        if (player.x + player.width > WINDOW_WIDTH) player.x = WINDOW_WIDTH - player.width;
 
-        // Actualizar los círculos
-        for (int i = 0; i < active_circles; i++) {
-            if (circles[i].active) {
-                circles[i].y += circles[i].vel_y;
-                if (circles[i].y - circles[i].radius > WINDOW_HEIGHT) {
-                    initialize_circle(&circles[i]);
-                }
+- Finalizar juego
+  
 
-                // Comprobar colisiones
-                if (detect_collision(&player, &circles[i])) {
-                    game_over = true;
-                }
-            }
-        }
+![image](https://github.com/user-attachments/assets/cd51ac87-bdbd-442f-ba6f-8a7636c98b2b)
 
-        // Incrementar la dificultad (añadir más círculos)
-        Uint32 current_time = SDL_GetTicks();
-        increase_difficulty(current_time);
 
-        // Dibujar el juego
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Fondo negro
-        SDL_RenderClear(renderer);
-
-        // Dibujar al jugador
-        SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255); // Color verde para el jugador
-        SDL_Rect player_rect = { player.x, player.y, player.width, player.height };
-        SDL_RenderFillRect(renderer, &player_rect);
-
-        // Dibujar los círculos
-        SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Color rojo para los círculos
-        for (int i = 0; i < active_circles; i++) {
-            if (circles[i].active) {
-                draw_circle(renderer, circles[i].x, circles[i].y, circles[i].radius);
-            }
-        }
-
-        SDL_RenderPresent(renderer); // Mostrar todo en la pantalla
-
-        SDL_Delay(16); // Pausar para mantener 60 FPS
-    }
-
-    // Limpiar SDL
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-    SDL_Quit();
-
-    if (game_over) {
-        printf("Has perdido!.\n");
-    }
-
-    return 0;
-}
-```
 ## Final 
 
 ```c
