@@ -1076,7 +1076,6 @@ Circle circles[MAX_CIRCLES]; // Array para almacenar los círculos
 int active_circles = 1;      // Número de círculos activos (comienza con 1)
 Uint32 last_add_time = 0;   // Tiempo del último aumento de círculos
 
-// Inicializar al jugador
 void initialize_player(Player* player) {
     player->x = WINDOW_WIDTH / 2;
     player->y = WINDOW_HEIGHT - 50;
@@ -1085,7 +1084,6 @@ void initialize_player(Player* player) {
     player->vel_x = 0;
 }
 
-// Inicializar un círculo
 void initialize_circle(Circle* circle) {
     circle->x = rand() % (WINDOW_WIDTH - circle->radius * 2) + circle->radius;
     circle->y = 0; // Empieza desde arriba
@@ -1094,7 +1092,6 @@ void initialize_circle(Circle* circle) {
     circle->active = true;
 }
 
-// Dibujar un círculo
 void draw_circle(SDL_Renderer* renderer, int center_x, int center_y, int radius) {
     for (int w = 0; w < radius * 2; w++) {
         for (int h = 0; h < radius * 2; h++) {
@@ -1107,7 +1104,6 @@ void draw_circle(SDL_Renderer* renderer, int center_x, int center_y, int radius)
     }
 }
 
-// Detectar colisión entre el jugador y el círculo
 bool detect_collision(Player* player, Circle* circle) {
     int dist_x = player->x + player->width / 2 - circle->x;
     int dist_y = player->y + player->height / 2 - circle->y;
@@ -1117,9 +1113,7 @@ bool detect_collision(Player* player, Circle* circle) {
     return distance < radius_squared;
 }
 
-// Incrementar el número de círculos activos
 void increase_difficulty(Uint32 current_time) {
-    // Agregar un nuevo círculo cada 5 segundos, hasta llegar a 25
     if ((current_time - last_add_time) > 5000 && active_circles < MAX_CIRCLES) {
         initialize_circle(&circles[active_circles]);
         active_circles++;
@@ -1127,15 +1121,12 @@ void increase_difficulty(Uint32 current_time) {
     }
 }
 
-// Juego principal
 int main(int argc, char* args[]) {
-    // Inicializar SDL
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         fprintf(stderr, "Error al inicializar SDL: %s\n", SDL_GetError());
         return 1;
     }
 
-    // Crear la ventana
     SDL_Window* window = SDL_CreateWindow("Juego de esquivar ", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, 0);
     if (!window) {
         fprintf(stderr, "Error al crear la ventana: %s\n", SDL_GetError());
@@ -1143,7 +1134,6 @@ int main(int argc, char* args[]) {
         return 1;
     }
 
-    // Crear el renderizador
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     if (!renderer) {
         fprintf(stderr, "Error al crear el renderizador: %s\n", SDL_GetError());
@@ -1160,9 +1150,7 @@ int main(int argc, char* args[]) {
     bool game_running = true;
     SDL_Event event;
 
-    // Bucle principal del juego
     while (game_running && !game_over) {
-        // Manejar eventos de SDL
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) {
                 game_running = false;
@@ -1189,7 +1177,6 @@ int main(int argc, char* args[]) {
         if (player.x < 0) player.x = 0;
         if (player.x + player.width > WINDOW_WIDTH) player.x = WINDOW_WIDTH - player.width;
 
-        // Actualizar los círculos
         for (int i = 0; i < active_circles; i++) {
             if (circles[i].active) {
                 circles[i].y += circles[i].vel_y;
@@ -1204,20 +1191,16 @@ int main(int argc, char* args[]) {
             }
         }
 
-        // Incrementar la dificultad (añadir más círculos)
         Uint32 current_time = SDL_GetTicks();
         increase_difficulty(current_time);
 
-        // Dibujar el juego
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Fondo negro
         SDL_RenderClear(renderer);
 
-        // Dibujar al jugador
         SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255); // Color verde para el jugador
         SDL_Rect player_rect = { player.x, player.y, player.width, player.height };
         SDL_RenderFillRect(renderer, &player_rect);
 
-        // Dibujar los círculos
         SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Color rojo para los círculos
         for (int i = 0; i < active_circles; i++) {
             if (circles[i].active) {
@@ -1230,7 +1213,6 @@ int main(int argc, char* args[]) {
         SDL_Delay(16); // Pausar para mantener 60 FPS
     }
 
-    // Limpiar SDL
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
