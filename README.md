@@ -993,11 +993,17 @@ Los círculos comienzan desde la parte superior de la pantalla y tienen una velo
 
 ![image](https://github.com/user-attachments/assets/71773e31-3927-4ba9-9c8c-78baca9b2607)
 
+![image](https://github.com/user-attachments/assets/d32beb14-c282-44f7-8431-963321030ab6)
+
+
 ![image](https://github.com/user-attachments/assets/df2a5d7f-15e1-40d0-8ce1-0e9ef2578d83)
 
 Cada 5 segundos, se añaden más círculos para incrementar la dificultad.
 
 ![image](https://github.com/user-attachments/assets/9849a938-7490-4038-956a-6cb9ee7f4b20)
+
+![image](https://github.com/user-attachments/assets/b7657e11-84ac-4e6c-9fcb-d6e590d20e1d)
+
 
 Para gestionar las colisiones, se ha implementado un sistema que detecta cuándo el cuadrado choca con un círculo. Si ocurre una colisión, se pierde el juego.
 
@@ -1042,6 +1048,9 @@ lo que se dibujo en ella
   
 
 ![image](https://github.com/user-attachments/assets/cd51ac87-bdbd-442f-ba6f-8a7636c98b2b)
+
+![image](https://github.com/user-attachments/assets/36722d11-1dd6-45e7-ab76-a15051026c29)
+
 
 
 ## Final 
@@ -1224,6 +1233,11 @@ int main(int argc, char* args[]) {
     return 0;
 }
 ```
+![image](https://github.com/user-attachments/assets/97ac5ed6-3541-4171-b23c-99d19f684664)
+
+
+![image](https://github.com/user-attachments/assets/a31f70b4-6fb6-4667-ac4c-96430b42a3df)
+
 ## Problemas 
 - Tuve algunos problemas al inicio para que el cuadrado apareciera y se mantuviera dentro de la pantalla cuando se presionaban las teclas 'A' y 'D'. 
 - También tuve problemas al tratar de aleatorizar el tamaño y la velocidad de los círculos. Al principio, estos cambiaban a mitad de camino, pero yo quería que salieran con un tamaño  y que permanecieran así hasta que se fueran. Al final, pedí ayuda a una IA.
