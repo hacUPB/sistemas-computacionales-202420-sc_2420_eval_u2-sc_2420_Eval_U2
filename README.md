@@ -3,5 +3,6 @@
 ## Unidad 2
 
 Estudiante:  Tomas Mejia
-Id:  
+Id:  000466315
+Ejercicio 1: Reconociendo las Partes del Game Loop
 ---
