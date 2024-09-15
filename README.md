@@ -2,6 +2,6 @@
 # Documentación del Proyecto
 ## Unidad 2
 
-Estudiante:  
+Estudiante:  Tomas Mejia
 Id:  
 ---
