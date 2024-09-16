@@ -1,3 +1,0 @@
-﻿  main.c
-C:\Users\USUARIO\source\repos\MyGame\Project1\main.c(107,11): warning C4244: 'función': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-  Project1.vcxproj -> C:\Users\USUARIO\source\repos\MyGame\x64\Debug\Project1.exe
