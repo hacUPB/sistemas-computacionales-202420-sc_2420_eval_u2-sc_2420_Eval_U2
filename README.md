@@ -1022,7 +1022,8 @@ Aquí ya se ha agregado todo: cómo iniciar SDL, el renderizado, la ventana del 
 
 - La pantalla
 
-![image](https://github.com/user-attachments/assets/cbd67c91-c6b3-428e-b446-d1696e576865)
+![image](https://github.com/user-attachments/assets/9ef0e509-979f-4f48-96d1-34e3f99277c8)
+
 
 lo que se dibujo en ella
 
@@ -1062,8 +1063,8 @@ lo que se dibujo en ella
 #include <stdbool.h>
 #include <time.h>
 
-#define WINDOW_WIDTH 640
-#define WINDOW_HEIGHT 480
+#define WINDOW_WIDTH 800
+#define WINDOW_HEIGHT 600
 #define MAX_CIRCLES 25 // Incrementado a 25 círculos máximos
 
 typedef struct {
