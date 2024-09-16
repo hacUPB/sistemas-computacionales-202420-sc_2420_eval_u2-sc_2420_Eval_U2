@@ -1243,6 +1243,5 @@ int main(int argc, char* args[]) {
 - También tuve problemas al tratar de aleatorizar el tamaño y la velocidad de los círculos. Al principio, estos cambiaban a mitad de camino, pero yo quería que salieran con un tamaño  y que permanecieran así hasta que se fueran. Al final, pedí ayuda a una IA.
 
 - Otro problema que encontré es que la colisión no se detecta cuando el borde del cuadrado toca el círculo, sino cuando sus centros se tocan.
-- También hice la pantalla un poco más pequeña porque antes tenía que usar como 50 círculos para que el juego tuviera un nivel de dificultad adecuado. Sin embargo, al generar tantas esferas, a veces el juego sufría caídas en los FPS. No sé si era más un problema del computador, pero preferí reducir el tamaño y la cantidad de circulos que se generaban.
 
 ---
